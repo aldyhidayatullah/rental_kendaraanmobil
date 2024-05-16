@@ -21,5 +21,6 @@ Route::get('/booking/tambahbooking/{id}', [BookingController::class, 'index']);
 Route::post('/booking/tambahbooking', [BookingController::class, 'savebooking']);
 Route::get('/booking/daftarbooking', [BookingController::class, 'daftarbooking']);
 
-
+Route::get('/daftarbooking/edit/{id}', [BookingController::class, 'edit']);
+Route::post('/daftarbooking/save', [BookingController::class, 'saveedit']);
 Route::delete('daftarbooking/hapus', [BookingController::class, 'delete']);

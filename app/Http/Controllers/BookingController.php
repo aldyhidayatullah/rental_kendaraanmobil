@@ -46,4 +46,33 @@ class BookingController extends Controller
         Bookings::destroy($request->id);
         return redirect(url('booking/daftarbooking'))->with('success', 'Canceled Booking');
     }
+
+    public function edit($id) {
+        $data = Bookings::find($id);
+            $param = [
+                "databooking" => $data
+            ];
+            return view('editbooking', $param);
+    }
+
+    public function saveedit (Request $request) {
+        // dd($request);
+        $request->validate(
+            [
+                "nama_lengkap" => "required",
+                "alamat_lengkap" => "required",
+                "nomor_wa" => "required|numeric"
+            ],
+        );
+
+        $data = [
+            "nama_lengkap" => $request->input("nama_lengkap"),
+            "alamat_lengkap" => $request->input("alamat_lengkap"),
+            "nomor_handphone" => $request->input("nomor_wa"),
+        ];
+
+        Bookings::where('id', $request->id)->update($data);
+        return redirect(url("booking/daftarbooking"))->with("success", 'Edit Success');
+    }
+
 }
