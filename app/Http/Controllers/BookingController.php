@@ -41,4 +41,9 @@ class BookingController extends Controller
 
         return view('daftarbooking', $param);
     }
+
+    public function delete(Request $request) {
+        Bookings::destroy($request->id);
+        return redirect(url('booking/daftarbooking'))->with('success', 'Canceled Booking');
+    }
 }
