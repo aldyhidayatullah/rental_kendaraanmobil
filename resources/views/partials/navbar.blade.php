@@ -11,7 +11,7 @@
                 </div> --}}
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a class="active" href="#">Home</a></li>
+                        <li><a class="active" href="{{URL::to('/')}}">Home</a></li>
                         <li><a href="{{ URL::to('booking/daftarbooking') }}">List Bookings</a>
                         </li>
                     </ul>
