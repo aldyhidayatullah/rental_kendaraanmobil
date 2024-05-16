@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId("car_id");
             $table->string("nama_lengkap");
             $table->string("alamat_lengkap");
-            $table->integer("nomor_handphone");
+            $table->bigInteger("nomor_handphone");
             $table->timestamps();
         });
     }
