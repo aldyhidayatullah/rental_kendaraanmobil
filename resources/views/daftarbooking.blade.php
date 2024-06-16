@@ -1,53 +1,57 @@
-{{-- @dd($listbooking) --}}
 @extends('layouts.main')
 @section('container')
 
-<div class="container">
+<div class="container mt-5">
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
             {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <table class="table mt-5">
-        <thead>
-          <tr>
-            <th scope="col">Aksi</th>
-            <th scope="col">Nama Lengkap</th>
-            <th scope="col">Alamat Lengkap</th>
-            <th scope="col">Nomor Wa</th>
-            <th scope="col">Nama Mobil</th>
-            <th scope="col">Harga</th>
-          </tr>
-        </thead>
-        <tbody>
-            @if ( $listdaftarbooking->count() > 0)
-                @foreach ( $listdaftarbooking as $data )
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="{{ URL::to("daftarbooking/edit/$data->id") }}" class="btn btn-primary btn-sm me-2">Edit</a>
-                                <form action="{{ URL::to('daftarbooking/hapus') }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <input type="hidden" name="id" value="{{ $data->id }}">
-                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                </form>
-                            </div>
-                        </td>
-                        <td><p>{{ $data->nama_lengkap }}</p></td>
-                        <td><p>{{ $data->alamat_lengkap }}</p></td>
-                        <td><p>{{ $data->nomor_handphone }}</p></td>
-                        <td><p>{{ $data->car->nama_mobil }}</p></td>
-                        <td><p>{{ $data->car->harga_sewa }}</p></td>
-                    </tr>    
-                @endforeach
-            @else
+    
+    <h2 class="mb-4 text-center">List Booking</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-dark">
                 <tr>
-                    <td colspan="6"> <p class="text-center">Not Found</p></td>
+                    <th scope="col">Aksi</th>
+                    <th scope="col">Nama Lengkap</th>
+                    <th scope="col">Alamat Lengkap</th>
+                    <th scope="col">Nomor Wa</th>
+                    <th scope="col">Nama Mobil</th>
+                    <th scope="col">Harga</th>
                 </tr>
-            @endif
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @if ($listdaftarbooking->count() > 0)
+                    @foreach ($listdaftarbooking as $data)
+                        <tr>
+                            <td>
+                                <div class="d-flex">
+                                    <a href="{{ URL::to("daftarbooking/edit/$data->id") }}" class="btn btn-primary btn-sm me-2">Edit</a>
+                                    <form action="{{ URL::to('daftarbooking/hapus') }}" method="post" class="ms-2">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="id" value="{{ $data->id }}">
+                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td><p>{{ $data->nama_lengkap }}</p></td>
+                            <td><p>{{ $data->alamat_lengkap }}</p></td>
+                            <td><p>{{ $data->nomor_handphone }}</p></td>
+                            <td><p>{{ $data->car->nama_mobil }}</p></td>
+                            <td><p>Rp. {{ number_format($data->car->harga_sewa, 0, ',', '.') }}</p></td>
+                        </tr>    
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="6"><p class="text-center">Not Found</p></td>
+                    </tr>
+                @endif
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection

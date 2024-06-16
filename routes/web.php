@@ -15,7 +15,8 @@ use App\Http\Controllers\BookingController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 Route::get('/booking/tambahbooking/{id}', [BookingController::class, 'index']);
 Route::post('/booking/tambahbooking', [BookingController::class, 'savebooking']);

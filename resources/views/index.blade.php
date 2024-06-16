@@ -3,11 +3,13 @@
 
 @extends('layouts.main')
 @section('container')
+
+
     <!-- Hero Slider Begin -->
     <section class="hero-slider">
         <div class="hero-items owl-carousel">
             <div class="single-slider-item set-bg" data-setbg="img/honda_jazz2.jpg">
-                <div class="container">/
+                <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <h1>Rental Mobil Pontianak</h1>
@@ -75,7 +77,7 @@
                             </figure>
                             <div class="product-text">
                                 <h6>{{ $data->nama_mobil }}</h6>
-                                <p>Rp. {{ $data->harga_sewa }}</p>
+                                <p>Rp. {{number_format ($data->harga_sewa) }}</p>
                                 <a href="{{ URL::to("booking/tambahbooking/$data->id")}}" class="btn btn-primary custom-button">Booking</a>
                             </div>
                         </div>
