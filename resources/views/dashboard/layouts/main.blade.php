@@ -3,12 +3,13 @@
 <html lang="en" data-bs-theme="auto">
   <head>
     <script src="{{ asset('js/color-modes.js') }}"></script>
+    <link rel="website icon" href="img/logo.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Dashboard Template · Bootstrap v5.3</title>
+    <title>Dashboard Rental Mobil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
@@ -198,7 +199,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Rental Mobil</a>
 
     <ul class="navbar-nav flex-row d-md-none">
         <li class="nav-item text-nowrap">

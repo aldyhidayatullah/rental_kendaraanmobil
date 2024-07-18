@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Signin Template · Bootstrap v5.3</title>
+    <title>Signin User</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -107,7 +107,7 @@
             @endif
             <form action="{{ URL::to('login') }}" method="POST">
                 @csrf
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <h1 class="h3 mb-3 fw-normal">Please Sign In</h1>
                 @if ($errors->has('email'))
                   <p class="text-danger">{{ $errors->first('email') }}</p>
                 @endif
