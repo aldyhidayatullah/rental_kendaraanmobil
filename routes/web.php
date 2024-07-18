@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +19,24 @@ use App\Http\Controllers\BookingController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/register', [AuthController::class, 'register'])->middleware('guest');
+Route::post('/register', [AuthController::class, 'saveregister']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::middleware('auth')->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('dashboard', 'index');
+        Route::get('home', 'index');
+        Route::get('dashboard/booking', 'viewbooking');
+        Route::get('dashboard/car', 'viewcar');
+        Route::get('dashboard/tipe', 'viewtipe');
+    });
+});
 
 
 Route::get('/booking/tambahbooking/{id}', [BookingController::class, 'index']);
