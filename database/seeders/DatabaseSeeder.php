@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
            'username' => 'aldy',
            'email' => 'aldy@gmail.com',
            'password' => bcrypt('admin'),
-           'is_admin' => true,
+           'role' => 'admin',
        ]);
+
         Cars::factory()->create([
             'tipe_id'=> 1,
             'nama_mobil' => "Honda Jazz",
@@ -50,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'jumlah_penumpang' => 4,
             "image" => "yaris.jpg"
         ]);
+        
         Tipe::factory()->create([
             "nama_tipe" => "Hatchback"
         ]);
