@@ -9,7 +9,7 @@
 ![preview img](/register.png)
 DASHBOARD CUSTOMER
 ![preview img](/dashboardcustomer.png)
-![preview img](/dashboardbookingcustomer.png)
+![preiview img](/dashboardbookingcustomer.png)
 DASHBOARD ADMIN
 ![preview img](/dashboardadmin.png)
 ![preview img](/menudashboardadmin.png)
